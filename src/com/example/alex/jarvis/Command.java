@@ -1,9 +1,13 @@
+package com.example.alex.jarvis;
+
 import java.io.Serializable;
 
 /**
  * Created by hugopiso on 03/12/2016.
  */
 public class Command implements Serializable{
+
+    private  static  final  long serialVersionUID =  1350092881346723535L;
 
         public Command(String command){
             switch (command){
@@ -24,6 +28,8 @@ public class Command implements Serializable{
                     element = "living room";
                     break;
                 default:
+                    action = "switch on";
+                    element = "living room";
                     break;
             }
         }

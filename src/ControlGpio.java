@@ -1,3 +1,4 @@
+import com.example.alex.jarvis.Command;
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
 import com.pi4j.io.gpio.GpioPinDigitalOutput;
@@ -34,7 +35,7 @@ public class ControlGpio {
     }
 
     public void order() {
-        if(serverSocket != null){
+        while(true){
             try {
                 socketConnection = serverSocket.accept();
                 //SocketConnection.getInputStream is blocking
