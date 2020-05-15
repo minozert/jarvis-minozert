@@ -14,15 +14,21 @@ import java.net.Socket;
  * This example code demonstrates how to perform simple state
  * control of a GPIO pin on the Raspberry Pi.
  *
- * @author Robert Savage
+ * @author modification mino zert
  */
 public class ControlGpio {
 
     private ServerSocket serverSocket;
     private Socket socketConnection;
     final GpioController gpio = GpioFactory.getInstance();
-    final GpioPinDigitalOutput bedroomLight = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_07); // RED
-    final GpioPinDigitalOutput livingRoomLight = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_09); // GREEN
+    final GpioPinDigitalOutput lantaiSatu = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_02); // SATU
+    final GpioPinDigitalOutput lantaiDua = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_03); // DUA
+    final GpioPinDigitalOutput lantaiTiga = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_14); // TIGA
+    final GpioPinDigitalOutput lantaiEampat = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_17); // EMPAT
+    final GpioPinDigitalOutput lantaiLima = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_27); // LIMA
+    final GpioPinDigitalOutput lantaiEnam = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_22); // ENAM
+    final GpioPinDigitalOutput bukaPintu = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_09); // BUKA
+    final GpioPinDigitalOutput tutupPintu = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_10); // TUTUP
 
     public ControlGpio(int portNumber) {
 
@@ -58,24 +64,36 @@ public class ControlGpio {
     public void control(Command command) {
 
         switch (command.getAction()){
-            case "switch on":
+            case "lantai":
 
                 switch (command.getElement()) {
-                    case "bedroom":
-                        bedroomLight.high();
+                    case "satu":
+                        lantaiSatu.high();
                         break;
-                    case "living room":
-                        livingRoomLight.high();
+                    case "dua":
+                        lantaiDua.high();
+                        break;
+                    case "tiga":
+                        lantaiTiga.high();
+                        break;
+                    case "empat":
+                        lantaiEampat.high();
+                        break;
+                    case "lima":
+                        lantaiLima.high();
+                        break;
+                    case "enam":
+                        lantaiEnam.high();        
                 }
 
                 break;
-            case "switch off":
+            case "pintu":
                 switch (command.getElement()) {
-                    case "bedroom":
-                        bedroomLight.low();
+                    case "buka":
+                        bukaPintu.high();
                         break;
-                    case "living room":
-                        livingRoomLight.low();
+                    case "tutup":
+                        tutupPintu.high();
                 }
                 break;
         }
