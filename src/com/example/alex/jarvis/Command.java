@@ -7,29 +7,41 @@ import java.io.Serializable;
  */
 public class Command implements Serializable{
 
-    private  static  final  long serialVersionUID =  1350092881346723535L;
+    private  static  final  long serialVersionUID =  1L;
 
         public Command(String command){
             switch (command){
-                case "switch on bedroom":
-                    action = "switch on";
-                    element = "bedroom";
+                case "lantai satu":
+                    action = "satu";
+                    element = "lantai";
                     break;
-                case "switch off bedroom":
-                    action = "switch off";
-                    element = "bedroom";
+                case "lantai dua":
+                    action = "dua";
+                    element = "lantai";
                     break;
-                case "switch on living room":
-                    action = "switch on";
-                    element = "living room";
+                case "lantai tiga":
+                    action = "tiga";
+                    element = "lantai";
                     break;
-                case "switch off living room":
-                    action = "switch off";
-                    element = "living room";
+                case "lantai empat":
+                    action = "empat";
+                    element = "lantai";
                     break;
-                default:
-                    action = "switch on";
-                    element = "living room";
+                case "lantai lima":
+                    action = "lima";
+                    element = "lantai";
+                    break;
+                case "lantai enam":
+                    action = "enam";
+                    element = "lantai";
+                    break;
+                case "buka pintu":
+                    action = "buka";
+                    element = "pintu";
+                    break;
+                case "tutup pintu":
+                    action = "tutup";
+                    element = "pintu";
                     break;
             }
         }
